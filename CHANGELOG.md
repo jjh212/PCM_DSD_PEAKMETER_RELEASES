@@ -2,7 +2,7 @@
 
 ## v0.4.0 (2026-10-13) — Host Resize V2
 
-**Status:** locally built, deployed and user-verified; **public GitHub Release binary has not yet been attached**. This changelog records the verified build's functionality, not a downloadable artifact.
+**Status:** Official [v0.4.0 stable release](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.4.0) published 2026-10-13. Binary artifact + checksum file uploaded and independently downloaded for SHA256 verification. **The historical changelog below refers to this verified DLL.**
 
 ### 사용자 관점 변경 요약
 - 최소 크기 도달 후 창이 더 줄어들지 않도록 수정했습니다. 예전처럼 지나치게 좁은 영역에서 피크미터가 사라지는 동작을 사용하지 않습니다.

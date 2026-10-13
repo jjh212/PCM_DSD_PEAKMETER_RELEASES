@@ -7,7 +7,7 @@ PCM/DSD PeakMeter is a native C++ **display-only** level visualization component
 
 ## Installation
 1. Fully close foobar2000 and back up the current `foo_pcm_dsd_peakmeter.dll`.
-2. Once the verified v0.4.0 DLL is actually published as a GitHub Release asset, download that artifact. **No public binary asset is currently attached to this repository.**
+2. Download the verified **v0.4.0** binary from [the official GitHub release](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.4.0). This release contains `foo_pcm_dsd_peakmeter.dll` and `SHA256SUMS.txt`.
 3. Validate its SHA256 against `74C66AF9E58B5040F6243A90E6DD39B65AB5B1C6B93A4E2A0A5127D6E5535A55` (size 471,040 bytes).
 4. Install to your foobar2000 portable profile under `profile\user-components-x64\foo_pcm_dsd_peakmeter\foo_pcm_dsd_peakmeter.dll`. Each portable installation has its own copy; do not assume installing into one updates another.
 5. Relaunch foobar2000, verify the component loaded, and test it.
@@ -30,6 +30,19 @@ The **button cluster** comprises both PCM/DSD buttons plus the meter title. Mini
 | Vertical | Cluster width | Cluster height + **100 px** |
 
 Minimum size adapts to button and font settings. Further shrinking is prevented, rather than leaving a blank canvas. Meter bars and controls remain visible. When too cramped, overlapping dB number labels may be omitted. Standalone windows enforce drag constraints via Win32; embedded Columns UI panels notify the host of new size limits.
+
+
+### Screenshots — verified compact layouts
+
+The screenshots below are from the user-verified v0.4.0 V2 build, taken at the minimum supported dimensions. Images are optimized for documentation; the meter design remains unchanged.
+
+**Vertical — minimum width and height**
+
+![Vertical compact PeakMeter v0.4.0](images/minimum_vertical.png)
+
+**Horizontal — minimum width and height**
+
+![Horizontal compact PeakMeter v0.4.0](images/minimum_horizontal.png)
 
 ## Known limitations
 - Fullscreen DarkOne Z-order interactions are a separate issue and are **not** fixed by this resize release.

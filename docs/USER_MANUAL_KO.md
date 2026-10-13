@@ -12,7 +12,7 @@ PCM/DSD PeakMeter는 오디오 신호 상태를 시각적으로 보여주는 네
 
 1. 현재 foobar2000을 완전히 종료합니다. 작업 관리자에 `foobar2000.exe`가 남아 있지 않은지 확인하세요.
 2. 해당 설치본의 `profile\user-components-x64\foo_pcm_dsd_peakmeter\` 폴더와 기존 DLL을 백업합니다.
-3. **GitHub Releases에 v0.4.0 검증 DLL이 게시된 뒤에만** 내려받아 검증하세요. 현재 공개 저장소에는 설명서만 등록되었으며 바이너리는 아직 제공하지 않습니다.
+3. [공식 GitHub v0.4.0 릴리스](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.4.0)에서 검증된 `foo_pcm_dsd_peakmeter.dll`과 `SHA256SUMS.txt`를 다운로드하고 SHA256을 검증합니다.
 4. 검증된 DLL `foo_pcm_dsd_peakmeter.dll`을 해당 폴더에 배치합니다. 다른 프로그램 설치본(테스트/Golden/보관본)은 **폴더마다 별도의 DLL**을 가진다는 점을 주의하세요.
 5. foobar2000을 재실행하고 Components 목록에서 인식 여부 및 실제 미터 동작을 확인합니다.
 
@@ -71,6 +71,19 @@ DarkOne 테마 사용 시 전체화면에서 독립 창이 다른 창 뒤로 가
 | Custom Themes | 사용자 테마 저장·불러오기·이름 변경·삭제·JSON 가져오기/내보내기 |
 
 개별 패널에 적용되는 항목과 모든 패널에 적용되는 Global 항목은 별도입니다. 설정을 변경한 뒤 Apply/OK로 반영해야 하는 항목이 있으며, 설정이 갱신된 뒤 최소 크기도 재계산됩니다.
+
+
+### 실제 검증 화면 — 최소 크기
+
+다음 화면은 사용자 실사용 검증을 통과한 v0.4.0 V2의 최소 크기 상태입니다. 문서 게시용으로 이미지 용량만 최적화했습니다.
+
+**세로 모드 — 최소 너비·높이**
+
+![세로 모드 최소 크기](images/minimum_vertical.png)
+
+**가로 모드 — 최소 너비·높이**
+
+![가로 모드 최소 크기](images/minimum_horizontal.png)
 
 ## 7. 알려진 주의사항
 
