@@ -2,53 +2,94 @@
 
 ## English
 
-### v0.4.0 — Official Stable Release
+**PCM/DSD PeakMeter v0.4.0** is a native Windows x64 stereo peak-meter component for foobar2000. It is **display-only**: it does not change playback gain, DSP chains, DAC output mode or the audio samples. It operates in an independent window or as an embedded **Columns UI** panel.
 
-Native Windows x64 C++ **display-only** PCM/DSD stereo peak meter for foobar2000. Use it as a standalone window or an embedded Columns UI panel. The v0.4.0 stable release is **published and available to download**.
+[**Download official v0.4.0 stable release**](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.4.0) · [DLL](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/foo_pcm_dsd_peakmeter.dll) · [SHA256SUMS](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/SHA256SUMS.txt)
 
-**[Download v0.4.0](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.4.0)** · [Direct DLL](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/foo_pcm_dsd_peakmeter.dll) · [SHA256SUMS](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/SHA256SUMS.txt)
+| Release | Size | SHA256 |
+|---|---:|---|
+| `foo_pcm_dsd_peakmeter.dll` v0.4.0 | **471,040 bytes** | `74C66AF9E58B5040F6243A90E6DD39B65AB5B1C6B93A4E2A0A5127D6E5535A55` |
 
-- **471,040 bytes** · SHA256: `74C66AF9E58B5040F6243A90E6DD39B65AB5B1C6B93A4E2A0A5127D6E5535A55`
-- Horizontal / vertical stereo peak bars, PCM/DSD automatic display detection and manual mode buttons.
-- Configurable display-level correction (PCM 0 dB; DSD −6 dB default), scale, appearance, fonts, buttons and themes.
-- Standalone and embedded minimum-size constraints: stop shrinking at the computed boundary rather than blanking the meter. dB text may be omitted to prevent overlap.
-- Verified Windows x64 Release build, 15/15 core regression tests, 5/5 live resizing checks.
-- Display only: does not modify DSP chains, output samples or the audio path; not a certified DSD bitstream true-peak analyzer.
-- DarkOne fullscreen Z-order behavior is a separate unresolved matter.
+### Display examples
 
-**Documentation:** [Full bilingual manual — English first, Korean below](docs/USER_MANUAL.md) · [English-only manual](docs/USER_MANUAL_EN.md) · [Changelog](CHANGELOG.md)
+| Independent horizontal | Independent vertical |
+|---|---|
+| ![Independent horizontal meter](docs/images/standalone_horizontal.png) | ![Independent vertical meter](docs/images/standalone_vertical.png) |
 
-### Verified minimum-size screenshots
+**Embedded in a custom foobar2000 skin**
 
-| Vertical | Horizontal |
-|:--:|:--:|
-| ![Vertical minimum PeakMeter](docs/images/minimum_vertical.png) | ![Horizontal minimum PeakMeter](docs/images/minimum_horizontal.png) |
-| Min client width = button cluster width; min height = button cluster height + 100px | Min client width = button cluster width + 100px; min height = button cluster height |
+![Themed embedded PeakMeter](docs/images/embedded_theme_example.png)
+
+### Features
+
+- Automatic PCM/DSD display interpretation from verified **applied DSP-chain evidence** and user preset/component rules; manual PCM/DSD buttons.
+- Stereo left/right peak bars, peak hold, dB markers and display corrections (default PCM **0 dB**, DSD **−6 dB**).
+- Standalone and Columns UI embedded windows, per-panel **Horizontal / Vertical UP / Vertical DOWN** orientation.
+- v0.4.0 minimum-size protection: windows **stop shrinking** before the meter and controls disappear. Overlapping dB labels may be omitted.
+- Editable dB scale, V3 gradient / solid RGB / peak-dependent single-color palettes, fonts, button geometry, state colors and appearance-only JSON themes.
+- Eight Preferences pages, with selectable English and Korean interface language.
+- Automated core/layout regression **15/15 PASS** and actual minimum-size acceptance **5/5 PASS** (user-verified configuration).
+
+### Documentation
+
+- **[Complete illustrated bilingual manual — English first, Korean below](docs/USER_MANUAL.md)**
+- [English user manual — 8 Preferences screenshots and operation examples](docs/USER_MANUAL_EN.md)
+- [한국어 사용자 설명서](docs/USER_MANUAL_KO.md)
+- [English troubleshooting](docs/TROUBLESHOOTING_EN.md) · [한국어 문제 해결](docs/TROUBLESHOOTING_KO.md)
+- [Detailed changelog / 상세 변경내역](CHANGELOG.md)
+
+### Install in brief
+
+1. Exit foobar2000 and back up the previous DLL.
+2. Download the official DLL and verify the **exact SHA256** above.
+3. In the portable configuration verified for this project, copy the DLL to `<portable foobar2000>\profile\user-components-x64\foo_pcm_dsd_peakmeter\foo_pcm_dsd_peakmeter.dll`.
+4. Restart foobar2000, load the meter as an independent window or Columns UI panel, and open **Preferences → Tools → PCM/DSD PeakMeter**.
+
+The DSD level is a **display-corrected visualization**, not a certified native-DSD bitstream true-peak measurement. The DarkOne fullscreen Z-order interaction is tracked separately.
 
 ---
 
 ## 한국어
 
-### v0.4.0 — 정식 릴리스
+**PCM/DSD PeakMeter v0.4.0**은 Windows x64용 foobar2000 네이티브 C++ 스테레오 피크미터입니다. **표시 전용** 컴포넌트이므로 재생 음량, DSP 체인, DAC 출력 모드나 오디오 샘플을 변경하지 않습니다. **독립 실행 창**과 **Columns UI 삽입형 패널**로 사용할 수 있습니다.
 
-foobar2000 Windows x64용 네이티브 C++ **PCM/DSD 피크미터**입니다. 독립 창과 Columns UI 삽입형 패널을 지원하며, 오디오 신호를 변경하지 않는 시각화 전용 컴포넌트입니다.
+[**v0.4.0 정식 릴리스 다운로드**](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.4.0) · [DLL 직접 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/foo_pcm_dsd_peakmeter.dll) · [SHA256SUMS](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/SHA256SUMS.txt)
 
-**[v0.4.0 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.4.0)** · [DLL 직접 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/foo_pcm_dsd_peakmeter.dll) · [SHA256 체크섬](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v0.4.0/SHA256SUMS.txt)
+DLL 크기는 **471,040바이트**이며 SHA256은 위 영문 표와 동일합니다. 다운로드 후 해시를 검증하세요.
 
-- **471,040바이트**, SHA256은 위 영문 설명의 값과 동일합니다.
-- PCM/DSD 자동 판별, 수동 전환, L/R 피크, 가로·세로 방향, 눈금·글꼴·버튼·색상·사용자 테마 설정.
-- PCM 0dB / DSD −6dB 기본 **표시 보정**. 오디오 출력이나 DSP 처리 자체는 변경하지 않습니다.
-- 최소 크기에서 더 이상 줄어들지 않도록 수정했습니다. 피크바·버튼은 계속 표시하며, 공간이 부족하면 겹치는 dB 숫자만 생략합니다.
-- 독립 창과 Columns UI 패널의 최소 크기 검증 5/5 PASS, 코어 자동 회귀검증 15/15 PASS.
-- DarkOne 전체화면의 Z-order 가림 현상은 별도 과제로 남겨두었습니다.
+### 동작 화면
 
-**설명서:** [영문 위·한글 아래 통합 사용 설명서](docs/USER_MANUAL.md) · [한국어 전용 설명서](docs/USER_MANUAL_KO.md) · [상세 업데이트 내역](CHANGELOG.md) · [문제 해결](docs/TROUBLESHOOTING_KO.md)
+| 독립 창 가로 | 독립 창 세로 |
+|---|---|
+| ![독립 창 가로 피크미터](docs/images/standalone_horizontal.png) | ![독립 창 세로 피크미터](docs/images/standalone_vertical.png) |
 
-### 최소 크기 검증 화면
+**테마 삽입 예시**
 
-| 세로 모드 | 가로 모드 |
-|:--:|:--:|
-| ![세로 모드 최소 크기](docs/images/minimum_vertical.png) | ![가로 모드 최소 크기](docs/images/minimum_horizontal.png) |
-| 최소 너비 = 버튼부 너비, 높이 = 버튼부 높이 + 100px | 최소 너비 = 버튼부 너비 + 100px, 높이 = 버튼부 높이 |
+![테마 삽입형 피크미터](docs/images/embedded_theme_example.png)
 
-**설치 전:** foobar2000을 완전히 종료하고 기존 DLL을 백업한 다음, 다운로드한 DLL의 SHA256을 확인하세요. 포터블 설치본마다 각각의 DLL 파일이 존재합니다.
+### 주요 기능
+
+- 실제 **적용된 DSP 체인**과 사용자 프리셋/구성요소 규칙을 이용한 PCM/DSD 자동 판별, PCM/DSD 수동 버튼.
+- 좌·우 채널 피크바, 피크 홀드, dB 눈금, 표시 보정(기본 PCM **0dB**, DSD **−6dB**).
+- 독립 창과 Columns UI 패널, 패널별 **가로 / 세로 UP / 세로 DOWN** 방향.
+- v0.4.0 최소 크기 제한: 피크바가 사라질 정도로 창이 줄어들지 않습니다. 공간이 부족하면 겹치는 dB 글자만 생략됩니다.
+- dB 눈금 편집, 3종 색상 방식, 글꼴·버튼·상태별 색상, 외형 전용 JSON 테마.
+- 한글·영문 UI를 갖춘 8개 Preferences 탭.
+- 자동 테스트 **15/15 PASS**, 실사용 최소 크기 검증 **5/5 PASS**.
+
+### 상세 설명서
+
+- **[영문 전체 위 / 한글 전체 아래 — 19장 이미지 통합 사용자 설명서](docs/USER_MANUAL.md)**
+- [English user manual](docs/USER_MANUAL_EN.md)
+- [한국어 사용자 설명서 — 설정 8개 탭 상세 안내](docs/USER_MANUAL_KO.md)
+- [한국어 문제 해결](docs/TROUBLESHOOTING_KO.md) · [English troubleshooting](docs/TROUBLESHOOTING_EN.md)
+- [상세 업데이트 내역](CHANGELOG.md)
+
+### 설치 요약
+
+1. foobar2000을 완전히 종료하고 기존 DLL을 백업합니다.
+2. 공식 릴리스의 DLL을 다운로드한 뒤 **SHA256을 반드시 확인**합니다.
+3. 본 프로젝트에서 검증한 Portable 구조는 `<foobar2000 폴더>\profile\user-components-x64\foo_pcm_dsd_peakmeter\foo_pcm_dsd_peakmeter.dll`입니다.
+4. 재실행 후 독립 창 또는 Columns UI 패널을 열고 **Preferences → Tools → PCM/DSD PeakMeter**에서 설정합니다.
+
+DSD 표시 수치는 **시각화용 보정값**이며 네이티브 DSD 비트스트림 True Peak 측정의 공인값이 아닙니다. DarkOne 전체화면 Z-order 현상은 별도 진단 과제입니다.
