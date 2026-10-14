@@ -1,3 +1,13 @@
+# PCM/DSD PeakMeter — Change History / 변경내역
+
+## v0.8.0 (2026-10-14)
+
+- [English v0.8.0 details](docs/CHANGELOG_V080_EN.md)
+- [한국어 v0.8.0 업데이트](docs/CHANGELOG_V080_KO.md)
+- Binary SHA256: DFEE5B07E0C23D4252C3382F5CE69616D479445B449C20C34031FB33D4F17E60
+
+---
+
 # PCM/DSD PeakMeter — Changelog / 변경내역
 
 ## English
