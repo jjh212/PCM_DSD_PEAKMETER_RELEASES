@@ -1,6 +1,20 @@
-# PCM/DSD PeakMeter v0.8.1 — foobar2000 x64
+# PCM/DSD PeakMeter v0.8.2 — foobar2000 x64
 
-**Latest release:** [v0.8.1](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.1) · [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Full changelog](CHANGELOG.md)
+**Latest release:** [v0.8.2](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.2) · [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Full changelog](CHANGELOG.md)
+
+## v0.8.2 — Peak Hold animation / 최대 피크 마커 애니메이션
+
+PCM and DSD peak-hold markers now rise immediately on new peaks, hold **0.50 s**, then descend continuously at **30 dB/s**, responding instantly to higher peaks. Only Peak Hold animation was changed. PCM/DSD detection, sample analysis, main bar ballistics, audio output, calibration and UI layout are unchanged.
+
+PCM과 DSD의 최대 피크 마커를 foobar2000 내장 Peak Meter와 유사한 동작으로 개선했습니다. **0.50초 유지 → 30 dB/s 연속 하강**, 새 최대 피크에 즉시 반응합니다. 계측식·출력·일반 피크바·자동판별·UI는 변경하지 않았습니다.
+
+- DLL SHA256: `6A1CF501C12A00BEB92A11FAB139A3EB14BA22C94F1678C031D33549131AC7FC`
+- [v0.8.2 release installer](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.2)
+- [English changes](docs/CHANGELOG_V082_EN.md) | [한국어 변경내역](docs/CHANGELOG_V082_KO.md)
+
+---
+
+## Previous v0.8.1 documentation / 기존 v0.8.1 안내
 
 ## English
 

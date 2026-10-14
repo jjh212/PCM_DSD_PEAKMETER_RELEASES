@@ -1,5 +1,12 @@
 # PCM/DSD PeakMeter — Change History / 변경내역
 
+## v0.8.2 — PCM/DSD Peak Hold animation (2026-10-15)
+
+- [English](docs/CHANGELOG_V082_EN.md) | [한국어](docs/CHANGELOG_V082_KO.md)
+- DLL SHA256: 6A1CF501C12A00BEB92A11FAB139A3EB14BA22C94F1678C031D33549131AC7FC
+
+---
+
 ## v0.8.1 — Metadata maintenance (2026-10-15)
 
 - [English](docs/CHANGELOG_V081_EN.md) | [한국어](docs/CHANGELOG_V081_KO.md)
