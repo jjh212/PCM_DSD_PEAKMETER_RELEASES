@@ -1,5 +1,13 @@
 # PCM/DSD PeakMeter — Change History / 변경내역
 
+## v0.8.1 — Metadata maintenance (2026-10-15)
+
+- [English](docs/CHANGELOG_V081_EN.md) | [한국어](docs/CHANGELOG_V081_KO.md)
+- DLL SHA256: 757A49FEE98FF97CA316D03F1AB772665945586F8661232279FE22BADE27A144
+
+---
+
+
 ## v0.8.0 (2026-10-14)
 
 - [English v0.8.0 details](docs/CHANGELOG_V080_EN.md)
