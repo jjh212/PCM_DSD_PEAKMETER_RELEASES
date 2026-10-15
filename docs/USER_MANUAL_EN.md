@@ -1,137 +1,191 @@
-# PCM/DSD PeakMeter v0.8.0 — User Manual (English)
+# PCM/DSD PeakMeter v1.0 — User Manual
 
-**Release:** [v0.8.0](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.0) · **Date:** 2026-10-14 · [한국어](USER_MANUAL_KO.md) · [Change history](CHANGELOG_V080_EN.md)
+**Component:** PCM/DSD PeakMeter for foobar2000 · **Platform:** Windows x64 · **Version:** v1.0
 
+**Essential principle:** This is a **measurement and display-only** component. It does **not** modify the original PCM/DSD audio, playback DSP chain, DAC-bound stream, or sound quality. The DSD LPF processes **metering data only**.
 
-## 1. Introduction and system requirements
+## 1. Installation and environment
 
-PCM/DSD PeakMeter v0.8.0 is a **display-only** native Windows x64 component for **foobar2000**. It can be used as a standalone meter window or embedded in **Columns UI**. It does not change playback gain, insert DSPs, convert audio, or change the DAC output format. A compatible DoP stream must be visible at the meter's capture path for DSD detection.
+- Use with foobar2000 x64 as a supported Columns UI panel or standalone meter window.
+- Package options: `foo_pcm_dsd_peakmeter_v1.0_x64.fb2k-component` or `foo_pcm_dsd_peakmeter.dll`.
+- Example portable DLL location: `profile/user-components-x64/foo_pcm_dsd_peakmeter/foo_pcm_dsd_peakmeter.dll`.
+- Before manually replacing the DLL, completely close foobar2000 and back up the existing file. Verify distribution checksums against `SHA256SUMS.txt`.
+- Settings: **Preferences → Tools → PCM/DSD PeakMeter**.
+- The Components and General Preferences pages identify version **1.0**.
 
-| Requirement | Detail |
+![v1.0 General page — English](images/v100/pref_en_general.png)
+
+![Components — v1.0](images/v100/components_v100.png)
+
+### Opening the meter
+
+Select **View → Visualizations → PCM/DSD PeakMeter** to open a standalone window. Compatible Columns UI layouts can also host the meter as an embedded panel.
+
+![View → Visualizations → PCM/DSD PeakMeter](images/v100/menu_view_visualizations.png)
+
+## 2. Reading the meter
+
+- **L/R:** stereo channel readings.
+- **Peak bars:** current measured peaks. **Peak Hold:** a marker that holds briefly, then falls.
+- **Orange counter:** count of **entries into the caution range**, not time spent there or the number of clipped samples.
+- **Red counter:** count of **entries into the danger range**, not time spent there or the number of clipped samples.
+- **Maximum dB:** highest displayed peak value observed for each channel.
+- **Reset:** click the **numeric statistics area** to clear entry counters and maximum readings. The PCM/DSD format indicator is not a button.
+
+| Mode | Orange / caution | Red / danger | Upper scale tick |
+|---|---|---|---|
+| **PCM** | ≥ 0 dB and < +5 dB | ≥ +5 dB | +10 dB |
+| **DSD** | ≥ 0 dB and < +3.1 dB | ≥ +3.1 dB | +6.02 dB |
+
+**Distinction:** DSD `+6.02 dB` is the **upper scale tick**, **not** the red entry threshold. The final meter implementation enters its DSD red range at **+3.1 dB**.
+
+### Highlighted threshold labels
+
+The meter's region **background no longer brightens**. Instead, the matching **top and bottom scale labels** brighten simultaneously based on the currently measured playback level:
+
+- PCM: `0dB` for caution; `+5dB` for danger.
+- DSD: `0dB` for caution; `+3.1dB` for danger.
+
+Event counters accumulate across time; compare identical playback intervals with equivalent reset conditions when conducting a controlled test.
+
+### v1.0 meter screenshots — DSD512
+
+These are **actual screenshots from the v1.0 TEST meter**, showing DSD512 in horizontal/vertical and full/compact layouts. Peak readings and event counters reflect the capture instant; they are not fixed reference values or performance comparisons between layouts.
+
+**Horizontal — full-size**
+
+![v1.0 DSD512 meter — full horizontal](images/v100/meter_dsd512_horizontal_full.png)
+
+**Horizontal — compact**
+
+![v1.0 DSD512 meter — compact horizontal](images/v100/meter_dsd512_horizontal_compact.png)
+
+**Vertical — full-size**
+
+![v1.0 DSD512 meter — full vertical](images/v100/meter_dsd512_vertical_full.png)
+
+**Vertical — compact**
+
+![v1.0 DSD512 meter — compact vertical](images/v100/meter_dsd512_vertical_compact.png)
+
+### v1.0 meter screenshots — PCM
+
+The following two images show the **actual v1.0 TEST meter in PCM mode**. The capture sampling rate is visible, with PCM thresholds at `0dB` / `+5dB`.
+
+**Horizontal**
+
+![v1.0 PCM horizontal meter](images/v100/meter_pcm_horizontal.png)
+
+**Vertical**
+
+![v1.0 PCM vertical meter](images/v100/meter_pcm_vertical.png)
+
+**Note:** Peak values and counts in all screenshots show the display at the capture instant, not fixed reference results.
+
+## 3. Automatic PCM/DSD identification
+
+The component examines actual captured **DoP markers `0x05` / `0xFA`** and their validity to determine PCM/DSD status. A DSP preset's name alone is not proof of DSD playback. PCM mode shows the verified sample rate; DSD mode displays the confirmed format from `DSD64` through `DSD2048`. DSD detection requires compatible DoP data at the component's capture point.
+
+## 4. DSD metering — FAST and LPF
+
+![v1.0 DSD settings — English](images/v100/pref_en_dsd.png)
+
+### FAST — Direct DSD modulation peak measurement
+
+- Uses format-specific moving **28–896-bit** windows over DSD 1-bit modulation density.
+- **No high-cut/LPF is applied**, so ultrasonic noise can contribute to the displayed peak.
+- Default offset: **−4.8586 dB**; editable and resettable.
+- `0.0000 dB` represents the **uncorrected display**. `−4.8586 dB` is an **empirical display offset derived from PCM frequency comparison**. It is not a low-pass filter and does not adjust audio gain.
+
+### LPF — Low-pass filtering for measurement only
+
+The LPF progressively **attenuates** frequencies above the user's selected cutoff in the **metering data**, then measures the resulting filtered peak. Its goal is to limit the contribution of ultrasonic DSD noise shaping to unexpectedly high metered peaks.
+
+| Setting | Range / choices |
 |---|---|
-| OS | Windows x64 (developed and tested on Windows 11) |
-| Host | foobar2000 x64 and a compatible Columns UI installation for embedded use |
-| Component file | `foo_pcm_dsd_peakmeter.dll` |
-| Release | [v0.8.0](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.0) |
-| SHA256 (DLL) | `DFEE5B07E0C23D4252C3382F5CE69616D479445B449C20C34031FB33D4F17E60` |
+| Cut-off Frequency | **20–200 kHz**, default **40 kHz** |
+| Roll-off Method | **Slow Roll-off / Medium Roll-off / Sharp Roll-off** |
+| Default Roll-off | **Medium Roll-off** |
+| Response graph | Displays the selected roll-off response curve |
 
-### Install / update
+- **Slow:** gentler attenuation, allowing more post-cutoff ultrasonic content into the measurement.
+- **Medium:** intermediate attenuation and default setting (previously called `Normal`).
+- **Sharp:** steeper attenuation, leaving less post-cutoff ultrasonic content.
+- A cutoff is **not a hard frequency wall**. Some higher-frequency components remain according to the selected response.
 
-1. **Close foobar2000 completely.** Back up the previous component DLL before replacing it.
-2. Download the DLL and `SHA256SUMS.txt` from the linked release. Verify using PowerShell: `Get-FileHash -Algorithm SHA256 -LiteralPath 'C:\path\foo_pcm_dsd_peakmeter.dll'`.
-3. For the tested portable configuration copy the DLL into `<foobar2000-portable>\profile\user-components-x64\foo_pcm_dsd_peakmeter\`.
-4. Restart foobar2000; add the component as a Columns UI panel or open its independent window. Open **Preferences → Tools → PCM/DSD PeakMeter**.
-5. Settings and themes are stored in the host's own profile. Updating the DLL does not require copying another installation's profile.
+### Why limit ultrasonic noise?
 
-## 2. Automatic identification and metering
+Inaudible ultrasonic DSD noise can still contribute to a wideband peak calculation. Metered peak values may therefore differ from perceived playback loudness. The LPF offers user-selectable bandwidth and attenuation so that this contribution can be observed and controlled **in the meter**.
 
-### DoP marker detection (no manual PCM/DSD switch)
+Choosing a higher cutoff includes more ultrasonic information **in the measurement**, potentially resulting in a higher displayed peak. A lower cutoff or steeper roll-off suppresses more of this contribution. **These controls do not actually add or remove audible ambience, layering, holographic imaging, or any other sound quality.** Users wishing to observe a wider-band signal may choose a higher cutoff, with the trade-off of potentially higher **meter readings**.
 
-The capture stream is inspected for alternating **DoP markers `0x05` and `0xFA`**, including left/right channel synchronization and marker validation. A one-second voting window stabilizes PCM/DSD mode selection; ties or insufficient input retain the current state. Repeated confirmation of an unchanged mode does not reset the meter. **PCM** and **DSD** are **indicators**, not selectable mode buttons. A DSP profile name is not used to claim that DSD is active.
+### Example frequency response
 
-DoP markers identify the *presence of DoP framing*, not the DSD multiplier by themselves. The meter uses the **verified DoP carrier sample rate** to classify DSD64 through DSD2048. PCM mode displays the captured PCM sample rate (e.g., `PCM 44.1kHz`, `PCM 705.6kHz`); DSD mode displays the DSD format (e.g., `DSD512`). A sample rate alone does **not** prove that a stream is DoP.
+Calculated DSD64 attenuation with a **40 kHz cutoff**. These are single-frequency amplitude losses, **not** predicted peak reductions for arbitrary music.
 
-### DSD-format-specific FAST window
-
-Each verified DoP carrier uses the corresponding moving direct-modulation bit window:
-
-| Format | 44.1-kHz-family DoP carrier | 48-kHz-family DoP carrier | FAST window per channel |
+| Frequency | Slow | Medium | Sharp |
 |---|---:|---:|---:|
-| DSD64 | 176.4 kHz | 192 kHz | 28 bits |
-| DSD128 | 352.8 kHz | 384 kHz | 56 bits |
-| DSD256 | 705.6 kHz | 768 kHz | 112 bits |
-| DSD512 | 1411.2 kHz | 1536 kHz | 224 bits |
-| DSD1024 | 2822.4 kHz | 3072 kHz | 448 bits |
-| DSD2048 | 5644.8 kHz | 6144 kHz | 896 bits |
+| 40 kHz | −3.01 dB | −3.01 dB | −3.01 dB |
+| 60 kHz | −7.89 dB | −14.37 dB | −21.34 dB |
+| 80 kHz | −12.49 dB | −24.43 dB | −36.59 dB |
+| 100 kHz | −16.38 dB | −32.44 dB | −48.60 dB |
+| 150 kHz | −23.91 dB | −47.47 dB | −71.05 dB |
+| 200 kHz | −29.72 dB | −58.83 dB | −87.95 dB |
 
-The meter counts DSD one-bits in the moving window and calculates a direct modulation peak. For a window of N bits, `M = abs(2 × ones − N) / N` and the uncalibrated SACD-reference display is `20 × log10(2M)` for M > 0. The configured FAST offset is then applied to the **displayed value**. The same calibrated data path drives the **instantaneous bar**, **Peak Hold**, **orange/red warning statistics**, and **maximum displayed peak**. Auxiliary short-window diagnostics are not a separate displayed warning threshold.
+**Invariant:** FAST/LPF select how **metering samples** are calculated and displayed. Neither mode inserts high-cut processing into playback or the DAC-bound stream. These readings are not a certification of reconstructed DSD True Peak or the analog output voltage of a DAC.
 
-**Important limits:** FAST measures the **1-bit modulation density**, not a low-pass-filtered reconstructed analog waveform and not PCM True Peak. PCM and DSD readings therefore do not have identical physical meanings. Actual DSD64–DSD2048 playback on every possible device/transport has not been comprehensively validated; the implementation has passed supported-format synthetic window tests and actual DSD512 observation.
+## 5. Preferences and appearance
 
-### FAST calibration and planned LPF
+General, Panel Appearance, dB Scale, Meter Colours, Fonts, Custom Themes and DSD settings are provided, along with English and Korean language choices. Horizontal, vertical and compact layouts are supported. `Apply` saves changes, `Cancel` discards pending edits, and `Reset` restores the relevant setting defaults.
 
-- Default displayed DSD FAST offset: **−4.8586 dB** (user adjustable and resettable).
-- **0.0000 dB:** uncalibrated direct-modulation measurement; no low-pass/high-cut filter.
-- **−4.8586 dB:** empirical display alignment parameter derived from PCM frequency comparison; it does not normalize output volume or guarantee PCM/DSD physical equivalence.
-- **LPF is not available in v0.8.0.** The DSD Preferences page lists future controls only: cutoff **20–200 kHz** (planned default **40 kHz**) and Slow / Normal / Sharp (planned default Normal). Do not interpret these as active filtering.
+The following screenshots show the finalized v1.0 TEST UI.
 
-## 3. Reading the meter
+### 5.1 Panel Appearance
 
-- Stereo **L/R** instantaneous bars and approximately 1.4-second peak-hold markers.
-- In **PCM**, orange warning region starts at **0 dB**, red at **+5 dB**, with upper scale limit **+10 dB**.
-- In **DSD**, orange region starts at **0 dB**, red at **+3.1 dB**, with upper direct-modulation scale **+6.02 dB**. The meter region and alarm classification follow the same *displayed calibrated* peak.
-- Per-channel statistics show separate **orange/red entry counts** and each channel's **maximum calibrated displayed peak**.
-- **Click anywhere in the statistics strip to reset** counters and maxima. Individual cells provide hover / pressed feedback. There is no separate RESET label. PCM↔DSD automatic changes also reset mode-specific statistics.
-- Horizontal / vertical and compact layouts are supported; minimum display modes preserve core readings while selectively hiding crowded tick labels.
-- The PCM/DSD state text is informative, not a switch. A paused/stopped meter may retain its previously displayed peak/statistics.
-## 4. Preferences reference / settings screenshots
+Select the edited panel, its orientation, and preview the layout.
 
-### 4.1 General
+![v1.0 Panel Appearance](images/v100/pref_en_panel.png)
 
-Language choice, version 0.8.0, developer information, release URL and global reset.
+### 5.2 dB Scale
 
-![General](images/v080/pref_en_general.png)
+Adjust intermediate scale marks. PCM uses `0dB/+5dB` and DSD uses `0dB/+3.1dB` for the warning boundary labels.
 
-### 4.2 Panel Appearance
+![v1.0 dB Scale](images/v100/pref_en_scale.png)
 
-Select individual panel; set horizontal or vertical orientation; preview meter layout.
+### 5.3 Meter Colours
 
-![Panel Appearance](images/v080/pref_en_panel.png)
+Choose the V3 gradient or other supported bar coloring. Color selection does not alter measurement algorithms.
 
-### 4.3 dB Scale
+![v1.0 Meter Colours](images/v100/pref_en_colours.png)
 
-Adjust intermediate tick values and positions per panel; fixed limits remain fixed.
+### 5.4 Fonts
 
-![dB Scale](images/v080/pref_en_scale.png)
+Adjust typeface, sizes, and text colors for the selected panel.
 
-### 4.4 Meter Colours
+![v1.0 Fonts](images/v100/pref_en_fonts.png)
 
-Choose V3 Gradient, solid RGB or peak-dependent single-colour style.
+### 5.5 Custom Themes
 
-![Meter Colours](images/v080/pref_en_colours.png)
+Save/load appearance themes, rename them, or export/import as JSON.
 
-### 4.5 Fonts
+![v1.0 Custom Themes](images/v100/pref_en_themes.png)
 
-Select installed font, sizes for ticks/channel/title and text colours.
+### 5.6 General / DSD
 
-![Fonts](images/v080/pref_en_fonts.png)
+See the actual v1.0 screenshots and explanations in **Sections 1 and 4** for language/version information and FAST/LPF metering.
 
-### 4.6 Custom Themes
+The v0.8.0 manual remains available separately as historical documentation.
 
-Save, load, rename, delete; JSON import/export for appearance-only settings.
+## 6. Live test context and limitations
 
-![Custom Themes](images/v080/pref_en_themes.png)
+Practical testing used **JoJo Siwa — Karma / DSD64 / DSD Processor SDM Type B / Nova GE off**. The meter's stereo peaks visibly changed when adjusting cutoff and roll-off settings. Screenshot intervals and counter reset timing may differ, so isolated screenshots must not be interpreted as rigorously identical-time measurements.
 
-### 4.7 DSD
+Verify the final v1.0 DLL hash against the **published `SHA256SUMS.txt`**. Do not mix binaries from the older v0.8.2 release into v1.0 packages.
 
-Set FAST offset; review direct-modulation and planned/disabled LPF options.
+## 7. Troubleshooting
 
-![DSD](images/v080/pref_en_dsd.png)
-
-## 5. Practical display examples
-
-### Full horizontal display
-
-![Horizontal meter, DSD512](images/v080/meter_horizontal.png)
-
-### Full vertical display
-
-![Vertical meter, DSD512](images/v080/meter_vertical.png)
-
-## 6. Compatibility notes and troubleshooting
-
-- Ensure the DLL is installed in the *active* foobar2000 profile and restart foobar2000 after replacement.
-- DoP detection depends on actual capture-point data; a DSD-labelled preset or high PCM sample rate is not sufficient proof.
-- Do not equate a calibrated DSD modulation-density peak with PCM reconstruction true peak, output voltage, or loudness.
-- Third-party skin errors such as DarkOne4Mod / JSplitter GDI+ font initialization are independent of the PeakMeter DLL. A host theme can encounter a transient invalid font size during early layout initialization.
-- If you change orientation, language or colour/theme settings, use **Apply** or **OK** to save; **Cancel** discards pending changes.
-
-## 7. Minimum-size modes — final screenshots
-
-### Horizontal minimum-size mode
-
-![Horizontal minimum-size v0.8.0 meter](images/v080/meter_horizontal_min.png)
-
-### Vertical minimum-size mode
-
-![Vertical minimum-size v0.8.0 meter](images/v080/meter_vertical_min.png)
+- If DSD playback appears as PCM, inspect the **actual DoP data** reaching the capture point.
+- If no reading appears, confirm playback and the active foobar2000 profile/component location.
+- Fully close foobar2000 before replacing a DLL.
+- Confirm metering changes after clicking `Apply` or `OK`.
+- FAST, LPF and PCM peak numbers have differing measurement definitions and need not match one-to-one.

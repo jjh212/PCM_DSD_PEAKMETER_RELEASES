@@ -1,3 +1,24 @@
+# PCM/DSD PeakMeter v1.0 — foobar2000 x64
+
+**Current version: v1.0.** [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Change log](CHANGELOG.md)
+
+## v1.0 — FAST / LPF measurement and final meter UI
+
+- DSD FAST: 28–896-bit direct-modulation peak metering; default calibration offset −4.8586 dB (display-only).
+- DSD LPF: 20–200 kHz selectable cutoff (40 kHz default); Slow / Medium / Sharp Roll-off (Medium default).
+- PCM/DSD warning entry counters, peak hold, maximum readings, click-to-reset statistics, and top/bottom warning tick highlights.
+- PCM caution/danger 0/+5 dB; DSD caution/danger 0/+3.1 dB, with +6.02 dB as DSD upper scale tick.
+- FAST and LPF affect **metering only**, never the playback stream, DSP output, or DAC signal.
+- Updated bilingual manuals with 22 actual v1.0 UI screenshots.
+
+**Validated v1.0 TEST DLL SHA256:** `AA2F514B8C8199923BBEE9F730A42222878B437DF5F6558BA94C6268160CF561`
+
+[v1.0 changes (English)](docs/CHANGELOG_V100_EN.md) · [v1.0 변경내역 (한국어)](docs/CHANGELOG_V100_KO.md)
+
+Historical release notes below remain unchanged. Their SHA256 values refer to previous versions only.
+
+---
+
 # PCM/DSD PeakMeter v0.8.2 — foobar2000 x64
 
 **Latest release:** [v0.8.2](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.2) · [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Full changelog](CHANGELOG.md)
