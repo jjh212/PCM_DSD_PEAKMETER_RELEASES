@@ -1,6 +1,24 @@
+# PCM/DSD PeakMeter v1.0.1 — foobar2000 x64
+
+**Current release: v1.0.1 (2026-10-16).** [Download / 공식 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.1) · [SHA256SUMS](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.1/SHA256SUMS.txt)
+
+**Recommended installation / 권장 설치:** Install `foo_pcm_dsd_peakmeter_v1.0.1_x64.fb2k-component` via foobar2000 **Preferences → Components → Install**, then restart. The installer archive contains one `foo_pcm_dsd_peakmeter.dll` at its ZIP root.
+
+**Final v1.0.1 documentation / 최종 설명서**
+- [한국어 사용설명서](docs/USER_MANUAL_V101_KO.md) · [English User Manual](docs/USER_MANUAL_V101_EN.md)
+- [한국어 변경내역](docs/CHANGELOG_V101_KO.md) · [English Release Notes](docs/CHANGELOG_V101_EN.md)
+
+**v1.0.1 highlights / 주요 변경:** PCM/DSD warning and danger thresholds, source-DSD modulation-limit window counters, L/R and format-label readability, panel-local statistics, and Korean/English card-style tooltips. FAST/LPF processing remains metering-only; playback audio and DAC-bound data are unchanged.
+
+**Official v1.0.1 DLL SHA256:** `AD33EC851B7632FF502D7B6B05ECCCD1AAFE0A04806056DB8D2AD47857262FFD`
+
+**Documentation note / 문서 안내:** The v1.0.1 Windows ZIP predates the final manual revision. The online final v1.0.1 manuals linked above supersede the manuals inside that ZIP. Previous release files and history are preserved.
+
+---
+
 # PCM/DSD PeakMeter v1.0 — foobar2000 x64
 
-**Current version: v1.0.** [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Change log](CHANGELOG.md)
+**Historical version: v1.0.** [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Change log](CHANGELOG.md)
 
 ## v1.0 — FAST / LPF measurement and final meter UI
 
@@ -21,7 +39,7 @@ Historical release notes below remain unchanged. Their SHA256 values refer to pr
 
 # PCM/DSD PeakMeter v0.8.2 — foobar2000 x64
 
-**Latest release:** [v0.8.2](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.2) · [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Full changelog](CHANGELOG.md)
+**Historical release:** [v0.8.2](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v0.8.2) · [English manual](docs/USER_MANUAL_EN.md) · [한국어 설명서](docs/USER_MANUAL_KO.md) · [Full changelog](CHANGELOG.md)
 
 ## v0.8.2 — Peak Hold animation / 최대 피크 마커 애니메이션
 

@@ -1,5 +1,19 @@
 # PCM/DSD PeakMeter — Change Log
 
+## v1.0.1 — Warning thresholds, DSD modulation counters, layout and bilingual tooltips (2026-10-16)
+
+[한국어 상세 변경내역](docs/CHANGELOG_V101_KO.md) · [English details](docs/CHANGELOG_V101_EN.md) · [Official v1.0.1 Release](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.1)
+
+- PCM warning: −5 dB to below 0 dB; danger: 0 dB and above. DSD warning: 0 dB to below +3.1 dB; danger: +3.1 dB and above, based on the displayed peak.
+- Verified DoP 1-bit DSD modulation-limit window counts for left/right channels; DSD64 uses standard-based thresholds, while DSD128–2048 thresholds are proportional estimates.
+- Improved vertical format alignment, L/R and PCM/DSD typography, and panel-local statistics reset.
+- Korean/English dark-card tooltips for modulation, warning, danger and maximum-peak statistics.
+- Component and Preferences version: 1.0.1. Metering-only changes do not alter playback audio or DAC-bound data.
+- Final online v1.0.1 manuals supersede the earlier manual revision in the original Windows ZIP; binary release assets remain unchanged.
+- DLL SHA256: `AD33EC851B7632FF502D7B6B05ECCCD1AAFE0A04806056DB8D2AD47857262FFD`.
+
+---
+
 ## v1.0 — FAST/LPF measurement, meter UI, bilingual documentation
 
 [한국어 상세](docs/CHANGELOG_V100_KO.md) · [English details](docs/CHANGELOG_V100_EN.md)
