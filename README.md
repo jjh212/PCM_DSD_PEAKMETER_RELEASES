@@ -1,6 +1,38 @@
+# PCM/DSD PeakMeter v1.0.2 — Windows x86/x64
+
+**Current release: v1.0.2 (2026-10-18)**
+
+[Download v1.0.2 / 공식 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.2)
+
+## Installation / 설치
+
+Select the package matching your foobar2000 architecture.
+
+- **32-bit (x86):** [Download x86 component](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.2/foo_pcm_dsd_peakmeter_v1.0.2_x86.fb2k-component)
+- **64-bit (x64):** [Download x64 component](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.2/foo_pcm_dsd_peakmeter_v1.0.2_x64.fb2k-component)
+- [SHA256 checksums](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.2/SHA256SUMS.txt)
+
+각각의 패키지에는 해당 아키텍처의 DLL 한 개가 압축 최상위에 포함됩니다.
+
+Install via foobar2000 Preferences > Components > Install, then restart.
+
+## What's new / 변경사항
+
+- Native Windows x86 support added.
+- Existing Windows x64 support retained.
+- Component and Korean/English Preferences version updated to 1.0.2.
+- No changes to metering algorithms, audio processing, settings, or UI.
+
+32비트 지원을 추가하고 기존 64비트 기능을 유지했습니다.
+계측 알고리즘, 출력 신호, 설정 및 UI 동작은 변경하지 않았습니다.
+
+Existing v1.0.1 manuals and previous releases remain available below.
+
+---
+
 # PCM/DSD PeakMeter v1.0.1 — foobar2000 x64
 
-**Current release: v1.0.1 (2026-10-16).** [Download / 공식 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.1) · [SHA256SUMS](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.1/SHA256SUMS.txt)
+**Historical release: v1.0.1 (2026-10-16).** [Download / 공식 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.1) · [SHA256SUMS](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.1/SHA256SUMS.txt)
 
 **Recommended installation / 권장 설치:** Install `foo_pcm_dsd_peakmeter_v1.0.1_x64.fb2k-component` via foobar2000 **Preferences → Components → Install**, then restart. The installer archive contains one `foo_pcm_dsd_peakmeter.dll` at its ZIP root.
 
