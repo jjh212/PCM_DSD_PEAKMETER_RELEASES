@@ -1,3 +1,34 @@
+# PCM/DSD PeakMeter v1.0.3 — Windows x86/x64
+
+**Current release: v1.0.3 (2026-10-19)**
+
+[Download v1.0.3 / 공식 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.3)
+
+## Installation / 설치
+
+- [32-bit x86 component](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.3/foo_pcm_dsd_peakmeter_v1.0.3_x86.fb2k-component)
+- [64-bit x64 component](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.3/foo_pcm_dsd_peakmeter_v1.0.3_x64.fb2k-component)
+- [SHA256 checksums](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.0.3/SHA256SUMS.txt)
+
+Install via foobar2000 Preferences > Components > Install, then restart.
+
+## What's new / 변경사항
+
+- Improved Preferences scaling for Windows DPI and screen resolution.
+- Fixed truncated labels, overlapping controls and button sizing.
+- Removed unnecessary vertical scrolling from the DSD settings panel.
+- PCM/DSD peak measurement and audio processing remain unchanged.
+
+- Windows DPI 배율 및 화면 해상도 대응 개선
+- 글자 잘림, 컨트롤 겹침, 버튼 크기 문제 수정
+- DSD 설정 화면의 불필요한 세로 스크롤 제거
+- 기존 피크 측정 및 오디오 처리 기능 유지
+
+[한국어 변경내역](docs/CHANGELOG_V103_KO.md) · [English release notes](docs/CHANGELOG_V103_EN.md)
+
+Previous releases and documentation are preserved below.
+
+---
 # PCM/DSD PeakMeter v1.0.2 — Windows x86/x64
 
 **Current release: v1.0.2 (2026-10-18)**

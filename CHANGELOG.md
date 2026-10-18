@@ -1,5 +1,24 @@
 # PCM/DSD PeakMeter — Change Log
 
+## v1.0.3 — Preferences DPI and layout improvements (2026-10-19)
+
+[한국어 변경내역](docs/CHANGELOG_V103_KO.md) · [English release notes](docs/CHANGELOG_V103_EN.md)
+
+- Improved DPI-aware Preferences layout and text readability.
+- Fixed overlapping controls and button sizing at higher display scaling.
+- Removed unnecessary scrolling in the DSD settings panel.
+- PCM/DSD peak measurement and audio output remain unchanged.
+
+**v1.0.3 — 환경설정 UI 개선**
+
+- Windows DPI 및 해상도별 환경설정 화면 대응 개선
+- 글자 잘림, 컨트롤 겹침 및 버튼 크기 문제 수정
+- DSD 설정 화면의 불필요한 세로 스크롤 제거
+- 기존 계측 및 오디오 출력 기능 유지
+
+---
+
+
 ## v1.0.1 — Warning thresholds, DSD modulation counters, layout and bilingual tooltips (2026-10-16)
 
 [한국어 상세 변경내역](docs/CHANGELOG_V101_KO.md) · [English details](docs/CHANGELOG_V101_EN.md) · [Official v1.0.1 Release](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.1)
