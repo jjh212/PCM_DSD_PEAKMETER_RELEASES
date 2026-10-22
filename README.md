@@ -1,6 +1,26 @@
+# PCM/DSD PeakMeter v1.1.0 — Windows x86/x64
+
+**Version 1.1.0 (2026-10-23)**
+
+[Download / 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.1.0)
+
+- [Universal x86/x64 installer / 통합 설치](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.1.0/foo_pcm_dsd_peakmeter_v1.1.0.fb2k-component)
+- [x86 installer](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.1.0/foo_pcm_dsd_peakmeter_v1.1.0_x86.fb2k-component) · [x64 installer](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.1.0/foo_pcm_dsd_peakmeter_v1.1.0_x64.fb2k-component)
+- [SHA256SUMS.txt](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/download/v1.1.0/SHA256SUMS.txt)
+
+Install via Preferences > Components > Install, then restart. Choose the intended panel, edit options, and press Apply/OK. Scroll down in Meter Colours for Peak Hold options.
+
+통계 영역 숨김, 눈금 한쪽 표시, Peak Hold 표시·색상·하강 속도, 일시정지 유지 및 글자색 변경 시 기존 글꼴 보존을 추가/수정했습니다. 환경설정 탭과 언어 전환 후 잔상도 수정했습니다. 옵션 변경 후 Apply/OK로 적용하세요.
+
+[English changes and verification](docs/CHANGELOG_V110_EN.md) · [한국어 변경사항·확인 범위](docs/CHANGELOG_V110_KO.md)
+
+Previous release documentation is retained below.
+
+---
+
 # PCM/DSD PeakMeter v1.0.3 — Windows x86/x64
 
-**Current release: v1.0.3 (2026-10-19)**
+**Historical release: v1.0.3 (2026-10-19)**
 
 [Download v1.0.3 / 공식 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.3)
 
@@ -31,7 +51,7 @@ Previous releases and documentation are preserved below.
 ---
 # PCM/DSD PeakMeter v1.0.2 — Windows x86/x64
 
-**Current release: v1.0.2 (2026-10-18)**
+**Historical release: v1.0.2 (2026-10-18)**
 
 [Download v1.0.2 / 공식 다운로드](https://github.com/jjh212/PCM_DSD_PEAKMETER_RELEASES/releases/tag/v1.0.2)
 

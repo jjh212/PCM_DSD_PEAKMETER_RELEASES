@@ -1,5 +1,16 @@
 # PCM/DSD PeakMeter — Change Log
 
+## v1.1.0 — Display controls and Preferences fixes (2026-10-23)
+
+[English](docs/CHANGELOG_V110_EN.md) · [한국어](docs/CHANGELOG_V110_KO.md)
+
+- Collapsible statistics, one-sided scale labels, configurable Peak Hold visibility/RGB/fall speed, optional pause freeze.
+- Preserved font metrics when editing text colours; restored default font/marker behaviour on reset.
+- Multiline Preferences tabs, immediate bilingual captions, and repaint repair.
+- Universal x86/x64 package; accepted R7 internal checks PASS 28/28.
+
+---
+
 ## v1.0.3 — Preferences DPI and layout improvements (2026-10-19)
 
 [한국어 변경내역](docs/CHANGELOG_V103_KO.md) · [English release notes](docs/CHANGELOG_V103_EN.md)
